@@ -4,20 +4,47 @@
   width: 100%;
   height: 50px;
   background: #2f2c2c;
-
+  position: relative;
 }
 
-.player > a {
+.controls > a {
   text-decoration: none;
   height: 50px;
-  width: 50px;
+  /* width: 50px; */
   box-sizing: border-box;
   text-align: center;
-  padding: 15px 0;
+  padding: 15px 7px;
   float: left;
   color: #40ce52;
 }
 
-.player > a:hover {
+.controls > a:hover {
   color: #0eff00;
+}
+
+.progress {
+  position: absolute;
+  left: 80px;
+  right: 80px;
+  top: 15px;
+  bottom: 15px;
+
+  background-color: #2f2c2c;
+}
+
+.progress > .bar {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+}
+
+.progress > .bar > div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: white;
 }
