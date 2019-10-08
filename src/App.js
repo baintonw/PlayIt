@@ -6,10 +6,13 @@ import Audio from './Components/Audio.js'
 
 class App extends React.Component {
 
+
+
   state = {
     audio: "lib/music/gameofthrones.mp3",
     hidden: "",
-    elapsed: 0
+    elapsed: 0,
+    test: ""
   }
 
 
@@ -30,6 +33,7 @@ class App extends React.Component {
   }
 
   render() {
+
     return (
       <div className="App">
         <div className="title">Playit!</div>
