@@ -45,6 +45,15 @@
   left: 0;
   top: 0;
   bottom: 0;
-  width: 50%;
+  width: 100%;
   background: white;
+}
+
+.progress > .bar > div > .elapsed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: blue;
 }
