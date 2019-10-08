@@ -3,7 +3,7 @@ import '../Player.css'
 
 function Player(props){
   return(
-    <div className="player" onClick={props.handleClick.bind(this)}>
+    <div className="player" >
       <div className="controls">
         <a href="nytimes.com"><i className="fa fa-chevron-left"></i></a>
         <a href="nytimes.com"><i className="fa fa-play" area-hidden="true"></i></a>

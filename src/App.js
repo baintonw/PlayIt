@@ -12,6 +12,7 @@ class App extends React.Component {
     elapsed: 0
   }
 
+
   percentElapsed = (event) => {
     // console.log((event.target.children[0].currentTime / event.target.children[0].duration))
 
@@ -20,17 +21,20 @@ class App extends React.Component {
     }, console.log(this.state.elapsed))
   }
 
-  handleClick = (event) => {
+  handleChange = (event, elapsed) => {
     event.preventDefault()
-    console.log('pew pew!', this);
+    console.log('pew pew!', event.target.currentTime);
+    this.setState({
+      elapsed: (event.target.currentTime / event.target.duration)
+    }, console.log('%celapsed time in state', 'font-size: 20px; color: blue', this.state.elapsed))
   }
 
   render() {
     return (
       <div className="App">
         <div className="title">Playit!</div>
-        <Player handleClick={this.handleClick} percentElapsed={this.percentElapsed} name="Will"/>
-        <Audio handleClick={this.handleClick} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
+        <Player percentElapsed={this.percentElapsed} name="Will"/>
+        <Audio handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
   }
