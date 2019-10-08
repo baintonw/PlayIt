@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <div className="title">Playit!</div>
       <Player />
+      <audio src="lib/music/gameofthrones.mp3" controls />
     </div>
   );
 }
