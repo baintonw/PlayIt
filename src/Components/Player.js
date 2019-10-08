@@ -2,6 +2,9 @@ import React from 'react'
 import '../Player.css'
 
 function Player(props){
+  console.log(Math.floor(props.elapsed * 100))
+  let elapsed;
+  elapsed = props.elapsed
   return(
     <div className="player" >
       <div className="controls">
@@ -12,7 +15,7 @@ function Player(props){
       <div className="progress">
         <div className="bar">
           <div>
-            <div className="elapsed"></div>
+            <div style={{width: `${props.elapsed * 100}%`}} className="elapsed"></div>
           </div>
         </div>
       </div>
