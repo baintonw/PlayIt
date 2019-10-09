@@ -12,17 +12,23 @@ class Audio extends React.Component{
   }
 
   componentDidUpdate(){
-    console.log("updated!", this.children)
-
+    console.log("updated!", this._audio.attributes)
+    if(this.props.playing){
+      this._audio.play()
+    } else {
+      this._audio.pause()
+    }
   }
 
+
   render(){
-    console.log()
+    // console.log(this._audio.isPlaying)
+    // console.log(self)
     // console.log("is the music playing?", this.props.playing)
 
     return(
       <div playing={this.props.playing} className="audio">
-        <audio onTimeUpdate={(e) => this.props.handleChange(e)} hidden={this.props.hidden} src={this.props.src} controls />
+        <audio ref={(el) => {this._audio = el}} onTimeUpdate={(e) => this.props.handleChange(e)} hidden={this.props.hidden} src={this.props.src} controls />
       </div>
     )
 
