@@ -9,11 +9,14 @@ class App extends React.Component {
 
 
   state = {
-    audio: "lib/music/gameofthrones.mp3",
+    audio: "lib/music/This Will Be Our Year.mp3",
     hidden: "",
     elapsed: 0,
-    test: ""
+    test: "",
+    playing: false
   }
+
+
 
 
   percentElapsed = (event) => {
@@ -32,13 +35,22 @@ class App extends React.Component {
     }, console.log('%celapsed time in state', 'font-size: 20px; color: blue', this.state.elapsed))
   }
 
+  play = (event) => {
+    event.preventDefault()
+    console.log('playing the audio element now')
+    this.setState({
+      playing: !this.state.playing
+    }, console.log(this.state.playing))
+  }
+
+
   render() {
 
     return (
       <div className="App">
         <div className="title">Playit!</div>
-        <Player elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
-        <Audio handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
+        <Player play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
+        <Audio playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
   }
