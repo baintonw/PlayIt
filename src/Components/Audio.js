@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 
 class Audio extends React.Component{
   componentDidUpdate(){
-    console.log("current time", this._audio.currentTime)
+    // console.log("current time", this._audio.currentTime)
     this._audio.currentTime = (this.props.elapsed * this._audio.duration)
 
     // this._audio.currentTime = (this.props.elapsed * this._audio.duration)
@@ -22,7 +22,7 @@ class Audio extends React.Component{
 
     return(
       <div className="audio">
-        <audio id="button" ref={(el) => {this._audio = el}} hidden={this.props.hidden} src={this.props.src} controls />
+        <audio id="button" onPause={(e) => this.props.setElapsedWhenPaused(e)} ref={(el) => {this._audio = el}} hidden={this.props.hidden} src={this.props.src} controls />
       </div>
     )
 

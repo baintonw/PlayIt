@@ -63,16 +63,21 @@ class App extends React.Component {
       elapsed: (progress / total)
     }, () => console.log(this.state.elapsed))
 
-
   }
 
+  setElapsedWhenPaused = (event, currentTime, duration) => {
+    console.log("current in app", event.target.currentTime)
+    // this.setState({
+    //   elapsed: (currentTime / duration)
+    // }, () => console.log("elapsed when paused", this.state.elapsed))
+  }
 
   render() {
     return (
       <div className="App">
         <div className="title">Playit!</div>
         <Player changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
-        <Audio elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
+        <Audio setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
   }
