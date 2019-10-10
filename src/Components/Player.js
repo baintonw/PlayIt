@@ -17,7 +17,7 @@ function Player(props){
     }
 
   }
-  console.log("playing?", props.playing, "can i get a pause-uh",props.pause)
+  console.log("elapsed", props.elapsed)
 
   return(
     <div className="player" >
@@ -29,7 +29,7 @@ function Player(props){
       <div onClick={(e) => props.changeProgress(e)} className="progress">
         <div className="bar">
           <div>
-            <div style={{width: `${props.progress * 100}%`}} className="elapsed"></div>
+            <div style={{width: `${props.elapsed * 100}%`}} className="elapsed"></div>
           </div>
         </div>
       </div>
