@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="title">Playit!</div>
-        <Player play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
+        <Player playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
         <Audio playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
