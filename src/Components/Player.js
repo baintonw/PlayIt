@@ -3,20 +3,33 @@ import '../Player.css'
 
 function Player(props){
   // console.log(Math.floor(props.elapsed * 100))
-  console.log(props.playing)
-  let elapsed;
-  elapsed = props.elapsed
+  // console.log(props.elapsed)
+  let progress;
+  progress = props.progress
+
+  function renderPlayButton(){
+    if(props.playing  && props.pause ){
+      return "fa fa-play"
+    } else if(props.playing){
+      return "fa fa-pause"
+    } else {
+      return "fa fa-play"
+    }
+
+  }
+  console.log("playing?", props.playing, "can i get a pause-uh",props.pause)
+
   return(
     <div className="player" >
       <div className="controls">
         <a href="nytimes.com"><i className="fa fa-chevron-left"></i></a>
-        <a onClick={(e) => props.play(e)} href="nytimes.com"><i className={props.playing ? "fa fa-pause" : "fa fa-play"} area-hidden="true"></i></a>
+        <a onClick={(e) => props.play(e)} href="nytimes.com"><i className={renderPlayButton()} area-hidden="true"></i></a>
         <a href="nytimes.com"><i className="fa fa-chevron-right"></i></a>
       </div>
-      <div className="progress">
+      <div onClick={(e) => props.changeProgress(e)} className="progress">
         <div className="bar">
           <div>
-            <div style={{width: `${props.elapsed * 100}%`}} className="elapsed"></div>
+            <div style={{width: `${props.progress * 100}%`}} className="elapsed"></div>
           </div>
         </div>
       </div>

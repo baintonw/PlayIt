@@ -4,34 +4,21 @@ import ReactDOM from "react-dom";
 
 class Audio extends React.Component{
 
-  start = () => {
-    const audio = document.querySelector('audio')
-    if(this.props.playing){
-      audio.play()
-    }
-  }
-
-  componentDidUpdate(){
-    console.log("updated!", this._audio.attributes)
-    if(this.props.playing){
-      this._audio.play()
-    } else {
-      this._audio.pause()
-    }
-  }
-
+  // componentDidUpdate(){
+  //   // this._audio.currentTime = (this.props.elapsed * this._audio.duration)
+  //
+  //
+  // }
 
   render(){
-    // console.log(this._audio.isPlaying)
-    // console.log(self)
-    // console.log("is the music playing?", this.props.playing)
-
+    console.log("Pause?", this.props.pause)
     return(
-      <div playing={this.props.playing} className="audio">
-        <audio ref={(el) => {this._audio = el}} onTimeUpdate={(e) => this.props.handleChange(e)} hidden={this.props.hidden} src={this.props.src} controls />
+      <div className="audio">
+        <audio id="button" ref={(el) => {this._audio = el}} onTimeUpdate={(e) => this.props.handleChange(e)} hidden={this.props.hidden} src={this.props.src} controls />
       </div>
     )
 
+    // this.setTime()
   }
 
 }
