@@ -66,7 +66,9 @@ class App extends React.Component {
   }
 
   setElapsedWhenPaused = (event, currentTime, duration) => {
-    console.log("current in app", event.target.currentTime)
+
+    console.log('hi', event.target.played)
+
     // this.setState({
     //   elapsed: (currentTime / duration)
     // }, () => console.log("elapsed when paused", this.state.elapsed))
