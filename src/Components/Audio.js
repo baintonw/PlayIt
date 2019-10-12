@@ -26,7 +26,7 @@ class Audio extends React.Component{
   render(){
     return(
       <div className="audio">
-        <audio id="button" onLoadedData={(e) => this.props.setDuration(e, this._audio.duration)} onPause={(e) => this.props.setElapsedWhenPaused(e)} ref={(el) => {this._audio = el}} hidden={this.props.hidden} src={this.props.src} controls />
+        <audio id="button" onTimeUpdate={(e) => this.props.handleChange(e)} onLoadedData={(e) => this.props.setDuration(e, this._audio.duration)} onPause={(e) => this.props.setElapsedWhenPaused(e)} ref={(el) => {this._audio = el}} hidden={this.props.hidden} src={this.props.src} controls />
       </div>
     )
 

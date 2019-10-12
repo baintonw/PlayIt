@@ -12,9 +12,8 @@ class App extends React.Component {
     audio: "lib/music/This Will Be Our Year.mp3",
     hidden: false,
     elapsed: 0,
-    progress: 0,
+    currentTime: 0,
     duration: 0,
-    test: "",
     playing: false,
     pause: false
   }
@@ -30,11 +29,11 @@ class App extends React.Component {
   //   }, console.log(this.state.elapsed))
   // }
 
-  handleChange = (event, elapsed) => {
-    //takes change in audio currentTime and sets elapsed in state
-    event.preventDefault()
+  handleChange = (event, currentTime) => {
+    //takes change in audio currentTime
+    console.log('current time', event.target)
     this.setState({
-      progress: (event.target.currentTime / event.target.duration)
+      currentTime: event.target.currentTime
     })
   }
 
@@ -90,7 +89,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="title">Playit!</div>
-        <Player duration={this.state.duration} changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
+        <Player currentTime={this.state.currentTime} elapsed={this.state.elapsed} duration={this.state.duration} changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
         <Audio setDuration={this.setDuration} setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );

@@ -1,42 +1,42 @@
 import React from 'react'
 import '../Player.css'
 
-function Player(props){
+class Player extends React.Component {
 
-  let progress;
-  progress = props.progress
-
-  function renderPlayButton(){
-    if(props.playing  && props.pause ){
+  renderPlayButton = () => {
+    if(this.props.playing  && this.props.pause ){
       return "fa fa-play"
-    } else if(props.playing){
+    } else if(this.props.playing){
       return "fa fa-pause"
     } else {
       return "fa fa-play"
     }
 
   }
-  console.log("elapsed", props.elapsed)
 
-  return(
-    <div className="player" >
-      <div className="controls">
-        <a href="nytimes.com"><i className="fa fa-chevron-left"></i></a>
-        <a onClick={(e) => props.play(e)} href="nytimes.com"><i className={renderPlayButton()} area-hidden="true"></i></a>
-        <a href="nytimes.com"><i className="fa fa-chevron-right"></i></a>
-      </div>
-      <div onClick={(e) => props.changeProgress(e)} className="progress">
-        <div className="bar">
-          <div>
-            <div style={{width: `${props.elapsed * 100}%`}} className="elapsed"></div>
+  render(){
+    console.log("current time!", this.props.currentTime)
+    return(
+      <div className="player" >
+        <div className="controls">
+          <a href="nytimes.com"><i className="fa fa-chevron-left"></i></a>
+          <a onClick={(e) => this.props.play(e)} href="nytimes.com"><i className={this.renderPlayButton()} area-hidden="true"></i></a>
+          <a href="nytimes.com"><i className="fa fa-chevron-right"></i></a>
+        </div>
+        <div onClick={(e) => this.props.changeProgress(e)} className="progress">
+          <div className="bar">
+            <div>
+              <div style={{width: `${(this.props.currentTime / this.props.duration) * 100}%`}} className="elapsed"></div>
+            </div>
           </div>
         </div>
+        <div className="timer">
+          {`${Math.floor(this.props.elapsed / this.props.duration)} / ${Math.floor(this.props.duration)}`}
+        </div>
       </div>
-      <div className="timer">
-        {`${Math.floor(props.elapsed * props.duration)} / ${Math.floor(props.duration)}`}
-      </div>
-    </div>
-  )
+    )
+  }
+
 }
 
 export default Player
