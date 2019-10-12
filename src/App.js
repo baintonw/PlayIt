@@ -55,9 +55,13 @@ class App extends React.Component {
   }
 
   changeProgress = (event) => {
-    // console.log(event.target, event.target.offsetLeft)
-    let progress = (event.clientX - 340)
-    let total = 433
+    //page 587
+    //client 586
+    //screen 527
+    console.log("screenX", event.screenX)
+    //width 440
+    let progress = (event.clientX - 587)
+    let total = 430
 
     this.setState({
       elapsed: (progress / total)

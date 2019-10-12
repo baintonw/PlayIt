@@ -6,6 +6,7 @@
   height: 50px;
   background: #2f2c2c;
   position: relative;
+  /* box-shadow: 3px 3px 2px black; */
 }
 
 .controls > a {
@@ -56,4 +57,14 @@
   top: 0;
   bottom: 0;
   background: blue;
+}
+
+.timer {
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 30px;
+  width: 10%;
+  float: right;
+
+  background-color: yellow;
 }
