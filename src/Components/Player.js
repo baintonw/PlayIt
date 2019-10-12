@@ -33,7 +33,9 @@ function Player(props){
           </div>
         </div>
       </div>
-      
+      <div className="timer">
+        {(props.elapsed * props.duration)}
+      </div>
     </div>
   )
 }

@@ -13,6 +13,7 @@ class App extends React.Component {
     hidden: false,
     elapsed: 0,
     progress: 0,
+    duration: 0,
     test: "",
     playing: false,
     pause: false
@@ -78,12 +79,19 @@ class App extends React.Component {
     // }, () => console.log("elapsed when paused", this.state.elapsed))
   }
 
+  setDuration = (event, duration) => {
+    // console.log("duration is set", duration)
+    this.setState({
+      duration: duration
+    }, () => console.log("duration is in state!", this.state.duration))
+  }
+
   render() {
     return (
       <div className="App">
         <div className="title">Playit!</div>
         <Player changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
-        <Audio setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
+        <Audio setDuration={this.setDuration} setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
   }
