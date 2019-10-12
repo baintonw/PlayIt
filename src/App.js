@@ -90,7 +90,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="title">Playit!</div>
-        <Player changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
+        <Player duration={this.state.duration} changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
         <Audio setDuration={this.setDuration} setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );

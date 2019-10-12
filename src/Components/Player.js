@@ -2,8 +2,7 @@ import React from 'react'
 import '../Player.css'
 
 function Player(props){
-  // console.log(Math.floor(props.elapsed * 100))
-  // console.log(props.elapsed)
+
   let progress;
   progress = props.progress
 
@@ -34,7 +33,7 @@ function Player(props){
         </div>
       </div>
       <div className="timer">
-        {(props.elapsed * props.duration)}
+        {`${Math.floor(props.elapsed * props.duration)} / ${Math.floor(props.duration)}`}
       </div>
     </div>
   )
