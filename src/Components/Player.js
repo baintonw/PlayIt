@@ -20,6 +20,8 @@ class Player extends React.Component {
 
 
 
+
+
   render(){
     console.log("current time!", this.props.currentTime)
     return(

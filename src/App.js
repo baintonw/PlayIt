@@ -6,6 +6,9 @@ import Audio from './Components/Audio.js'
 
 class App extends React.Component {
 
+  componentWillMount() {
+      document.addEventListener("keydown", this.handleKeyDown.bind(this));
+  }
 
 
   state = {
@@ -85,13 +88,20 @@ class App extends React.Component {
     }, () => console.log("duration is in state!", this.state.duration))
   }
 
-  
+  handleKeyDown = (event) => {
+    console.log(event.key === " ")
+    if(event.key === " "){
+      this.play(event)
+    }
+
+  }
+
 
   render() {
     return (
-      <div className="App">
+      <div  className="App">
         <div className="title">Playit!</div>
-        <Player currentTime={this.state.currentTime} elapsed={this.state.elapsed} duration={this.state.duration} changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
+        <Player onKeyDown={(e) => this.handleKeyDown(e)} currentTime={this.state.currentTime} elapsed={this.state.elapsed} duration={this.state.duration} changeProgress={this.changeProgress} pause={this.state.pause} playing={this.state.playing} play={this.play} elapsed={this.state.elapsed} percentElapsed={this.percentElapsed} name="Will"/>
         <Audio setDuration={this.setDuration} setElapsedWhenPaused={this.setElapsedWhenPaused} elapsed={this.state.elapsed} pause={this.state.pause} playing={this.state.playing} handleChange={this.handleChange} percentElapsed={this.percentElapsed} hidden={this.state.hidden} src={this.state.audio}/>
       </div>
     );
