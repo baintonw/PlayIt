@@ -85,6 +85,8 @@ class App extends React.Component {
     }, () => console.log("duration is in state!", this.state.duration))
   }
 
+  
+
   render() {
     return (
       <div className="App">

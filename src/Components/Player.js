@@ -14,6 +14,12 @@ class Player extends React.Component {
 
   }
 
+  formatTime = () => {
+    return `${Math.floor(this.props.currentTime)} / ${Math.floor(this.props.duration)}`
+  }
+
+
+
   render(){
     console.log("current time!", this.props.currentTime)
     return(
@@ -31,7 +37,7 @@ class Player extends React.Component {
           </div>
         </div>
         <div className="timer">
-          {`${Math.floor(this.props.elapsed / this.props.duration)} / ${Math.floor(this.props.duration)}`}
+          {this.formatTime()}
         </div>
       </div>
     )
